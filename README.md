@@ -31,11 +31,11 @@ Here's a walkthrough of implemented user stories:
 
 **iPhone 14 pro**
 
-![Imgur](https://i.imgur.com/otTq4LX.gif)
+<img src='https://github.com/kvelazco/Flixster-iOS/blob/main/Flixster%20demo%201%20iPhone%2014%20Pro.gif?raw=true' title='demo1'/>
 
 **iPhone SE (3rd generation)**
 
-![Imgur](https://i.imgur.com/2UIupSb.gif)
+<img src='https://github.com/kvelazco/Flixster-iOS/blob/main/Flixster%20demo%202%20iPhone%20SE%20(3rd%20generation).gif?raw=true' title='demo1'/>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with xCode internal software
