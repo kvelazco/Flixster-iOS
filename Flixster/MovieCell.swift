@@ -30,8 +30,8 @@ class MovieCell: UITableViewCell {
     func configure(with movie: Movie) {
         movieTitleLabel.text = movie.title
         movieOverviewLabel.text = movie.overview
-
-        Nuke.loadImage(with: movie.poster_path, into: moviePosterImageView)
+        
+        Nuke.loadImage(with: URL(string:"https://image.tmdb.org/t/p/original\(movie.poster_path)")!, into: moviePosterImageView)
     }
 
 }

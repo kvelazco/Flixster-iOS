@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        Nuke.loadImage(with: movie.backdrop_path, into: backdropImageView)
+        Nuke.loadImage(with: URL(string: "https://image.tmdb.org/t/p/original\(movie.backdrop_path)")!, into: backdropImageView)
         
         movieTitleLabel.text = movie.title
         voteAverageLabel.text = String(movie.vote_average)

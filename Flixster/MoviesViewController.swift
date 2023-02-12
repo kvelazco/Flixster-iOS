@@ -15,12 +15,47 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        movies = Movie.mockMovies
-        print(movies)
+        
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=d3ae243de5776e5ecdeee1c6092bf1f9")!
+
+        let request = URLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+
+            // Handle any errors
+            if let error = error {
+                print("❌ Network error: \(error.localizedDescription)")
+            }
+
+            // Make sure we have data
+            guard let data = data else {
+                print("❌ Data is nil")
+                return
+            }
+
+            do {
+                
+                let decoder = JSONDecoder()
+                
+                let response = try decoder.decode(MoviesResponse.self, from: data)
+
+                let movies = response.results
+                
+                DispatchQueue.main.async {
+
+                    self?.movies = movies
+
+                    self?.tableView.reloadData()
+                }
+                
+            } catch {
+                print("❌ Error parsing JSON: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+        print("👋 Below the closure")
         
         tableView.dataSource = self
-
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
